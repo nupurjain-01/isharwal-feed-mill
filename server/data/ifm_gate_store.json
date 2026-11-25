@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "employee_id": null,
+      "name": "System Administrator",
+      "email": "admin@isharwalfeedmill.com",
+      "password_hash": "$2a$10$9tlJSW.2ELoIOKInoXMuVOl0STmUaszxaWxXEK33t/IdPKzzfeFsG",
+      "role": "admin",
+      "is_active": true,
+      "created_at": "2026-11-23T04:55:30.868Z",
+      "updated_at": "2026-11-23T04:55:30.868Z"
+    },
+    {
+      "id": 2,
+      "employee_id": null,
+      "name": "Security Gate 1",
+      "email": "gate@isharwalfeedmill.com",
+      "password_hash": "$2a$10$QwO0ZpKZP.0RI9N4H.HvDuPedeCxJ2OWOEsmfq4CozbVfzfdaShpe",
+      "role": "receptionist",
+      "is_active": true,
+      "created_at": "2026-11-23T04:55:30.868Z",
+      "updated_at": "2026-11-23T04:55:30.868Z"
+    }
+  ],
+  "departments": [],
+  "employees": [],
+  "visitors": [],
+  "expected_visitors": [],
+  "notifications": [],
+  "counters": {
+    "users": 2,
+    "departments": 0,
+    "employees": 0,
+    "visitors": 0,
+    "expected_visitors": 0,
+    "notifications": 0
+  }
+}

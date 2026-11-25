@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: isharwal-feed-mill-gate-entry
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: COMPANY_NAME
+        value: ISHARWAL FEED MILL
+      - key: JWT_SECRET
+        generateValue: true
