@@ -26,8 +26,10 @@ import uploadRoutes from './routes/uploadRoutes.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Explicitly load .env
+// Preserve cloud-assigned PORT from host (e.g. Render/Railway)
+const cloudPort = process.env.PORT;
 dotenv.config({ path: path.resolve(__dirname, '.env') });
+const PORT = cloudPort || process.env.PORT || 5000;
 
 const app = express();
 const server = http.createServer(app);
@@ -110,7 +112,6 @@ app.use((err, req, res, next) => {
 });
 
 // Start Server
-const PORT = process.env.PORT || 5000;
 server.listen(PORT, '0.0.0.0', async () => {
   console.log('========================================================');
   console.log(`🚀 ISHARWAL FEED MILL GATE ENTRY SYSTEM LIVE ON PORT ${PORT}`);
