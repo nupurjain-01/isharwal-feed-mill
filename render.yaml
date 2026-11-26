@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: isharwal-feed-mill-gate-entry
+    name: isharwal-feed-mill
     runtime: node
     plan: free
     region: oregon
@@ -13,3 +13,14 @@ services:
         value: ISHARWAL FEED MILL
       - key: JWT_SECRET
         generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: isharwal-central-db
+          property: connectionString
+
+databases:
+  - name: isharwal-central-db
+    plan: free
+    region: oregon
+    databaseName: isharwal_gate_db
+    user: isharwal_admin

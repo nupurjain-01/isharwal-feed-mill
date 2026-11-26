@@ -9,6 +9,7 @@ import { fileURLToPath } from 'url';
 import morgan from 'morgan';
 
 import { testConnection } from './config/db.js';
+import { runMigrations } from './database/migrate.js';
 import { setSocketIO } from './services/notificationService.js';
 
 // Route Imports
@@ -117,5 +118,12 @@ server.listen(PORT, '0.0.0.0', async () => {
   console.log('========================================================');
   
   // Verify Database Connection on startup
-  await testConnection();
+  const isConnected = await testConnection();
+  if (process.env.DATABASE_URL && isConnected) {
+    try {
+      await runMigrations();
+    } catch (migErr) {
+      console.warn('[Startup Migration Warning]:', migErr.message);
+    }
+  }
 });
